@@ -176,7 +176,7 @@
     gap:40px;
   }
   @media(min-width:860px){
-    .hero-row{grid-template-columns:minmax(260px,340px) 1fr; align-items:start;}
+    .hero-row{grid-template-columns:minmax(260px,340px) 1fr; align-items:center;}
   }
   .hero p.lede{
     margin:0;
@@ -189,12 +189,6 @@
     display:flex;
     gap:14px;
     flex-wrap:wrap;
-  }
-  .hero-cite{
-    margin-top:24px;
-    font-family:'IBM Plex Sans', sans-serif;
-    font-size:12.5px;
-    color:var(--slate-light);
   }
 
   /* ---------- SIGNATURE: SLIDE DEMO ---------- */
@@ -465,12 +459,12 @@
   }
   @media(min-width:900px){.about-grid{grid-template-columns:280px 1fr; align-items:start;}}
   .about-photo-frame{
-    width:200px;
+    width:260px;
     max-width:100%;
     aspect-ratio:1;
     background:var(--brand);
     clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    padding:7px;
+    padding:8px;
   }
   .about-photo{
     width:100%;
@@ -478,7 +472,7 @@
     clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     overflow:hidden;
   }
-  .about-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .about-photo img{width:100%; height:100%; object-fit:cover; object-position:center 30%; transform:scale(0.82); display:block;}
   .about-intro{
     font-size:17px;
     color:var(--ink-soft);
@@ -605,7 +599,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#contact" class="btn btn-primary nav-cta">Book a consult</a>
+    <a href="#contact" class="btn btn-primary nav-cta">Reach out</a>
   </nav>
 </header>
 
@@ -619,10 +613,9 @@
         <div class="hero-text">
           <p class="lede">I help engineers, consultants, and leaders build presentations people actually remember. I studied and researched Michael Alley's Assertion-Evidence method at Penn State, and I've applied it ever since.</p>
           <div class="hero-ctas">
-            <a href="#contact" class="btn btn-primary">Book a consult</a>
-            <a href="#services" class="btn btn-ghost">See how it works</a>
+            <a href="#contact" class="btn btn-primary">Reach out</a>
+            <a href="#method" class="btn btn-ghost">See how it works</a>
           </div>
-          <p class="hero-cite">This headline is itself an assertion. Toggle the slide to see why it works.</p>
         </div>
 
         <div class="demo">
@@ -769,12 +762,12 @@
               <p>B.S. in Chemical Engineering with a minor in German and Honors in Communication Arts &amp; Sciences. Supported Michael Alley's Assertion-Evidence research as a student researcher. Presented at the 2011 and 2012 ASEE National Conferences and co-authored a thesis on effective engineering communication. As a Penn State Engineering Ambassador, delivered presentations to audiences from 4 to 400 people.</p>
             </div>
             <div class="timeline-item">
-              <span class="year">Since 2013 · Industry</span>
-              <h4>Engineering, Product, and Project Management</h4>
+              <span class="year">2013 – 2022 · Industry</span>
+              <h4>Energy and Software Industries</h4>
               <p>Roles spanning engineering in the energy industry, project management with an engineering consulting firm, and product management in software. Along the way, lived and worked in both the US and Germany.</p>
             </div>
             <div class="timeline-item">
-              <span class="year">Currently · Houston, TX</span>
+              <span class="year">2022 – Present · Houston, TX</span>
               <h4>Technology Consulting</h4>
               <p>Working as a technology consultant, while continuing to teach, coach, and build presentations through Assertion-Evidence. Along the way, exposed to the communication style of organizations across industries.</p>
             </div>
