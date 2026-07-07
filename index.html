@@ -156,33 +156,42 @@
     padding:88px 0 72px;
   }
   .hero .wrap{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:56px;
-  }
-  @media(min-width:960px){
-    .hero .wrap{grid-template-columns:1.05fr 1fr; align-items:center;}
+    display:flex;
+    flex-direction:column;
+    gap:44px;
   }
   .hero h1{
-    font-size:clamp(30px, 4.4vw, 46px);
-    line-height:1.18;
+    font-size:clamp(28px, 5vw, 40px);
+    line-height:1.2;
     font-style:italic;
+    max-width:22ch;
+  }
+  @media(min-width:860px){
+    .hero h1{max-width:none; font-size:40px;}
   }
   .hero .assertion-mark{color:var(--brand-dark); font-style:normal;}
+  .hero-row{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+  @media(min-width:860px){
+    .hero-row{grid-template-columns:minmax(260px,340px) 1fr; align-items:start;}
+  }
   .hero p.lede{
-    margin:22px 0 0;
+    margin:0;
     max-width:46ch;
     color:var(--slate);
     font-size:17px;
   }
   .hero-ctas{
-    margin-top:32px;
+    margin-top:26px;
     display:flex;
     gap:14px;
     flex-wrap:wrap;
   }
   .hero-cite{
-    margin-top:28px;
+    margin-top:24px;
     font-family:'IBM Plex Sans', sans-serif;
     font-size:12.5px;
     color:var(--slate-light);
@@ -199,6 +208,8 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
     margin-bottom:16px;
   }
   .demo-label{
@@ -210,7 +221,9 @@
   }
   .toggle{
     position:relative;
-    display:inline-flex;
+    display:flex;
+    width:100%;
+    max-width:340px;
     background:rgba(255,255,255,0.08);
     border-radius:999px;
     padding:3px;
@@ -219,17 +232,19 @@
   .toggle button{
     position:relative;
     z-index:2;
+    flex:1;
     border:none;
     background:none;
     color:#B8C2CA;
     font-family:'IBM Plex Sans', sans-serif;
     font-size:12.5px;
     font-weight:600;
-    padding:8px 14px;
+    padding:8px 10px;
     border-radius:999px;
     cursor:pointer;
     transition:color .2s ease;
     white-space:nowrap;
+    text-align:center;
   }
   .toggle button[aria-pressed="true"]{color:var(--ink);}
   .toggle .thumb{
@@ -424,12 +439,14 @@
     background:var(--ink);
     color:var(--paper);
     padding:32px 30px;
+    display:flex;
+    flex-direction:column;
   }
   .quote-item p{
     font-family:'Newsreader', serif;
     font-style:italic;
-    font-size:16px;
-    line-height:1.55;
+    font-size:19px;
+    line-height:1.5;
     margin:0 0 18px;
   }
   .quote-item cite{
@@ -437,6 +454,7 @@
     font-style:normal;
     font-size:11.5px;
     color:#93A2AC;
+    margin-top:auto;
   }
 
   /* ---------- ABOUT ---------- */
@@ -596,17 +614,18 @@
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
-      <div>
-        <h1>A slide that argues <span class="assertion-mark">one clear claim</span> persuades more than a slide that lists many bullets.</h1>
-        <p class="lede">I help engineers, consultants, and leaders build presentations people actually remember. I studied and researched Michael Alley's Assertion-Evidence method at Penn State, and I've applied it ever since.</p>
-        <div class="hero-ctas">
-          <a href="#contact" class="btn btn-primary">Book a consult</a>
-          <a href="#services" class="btn btn-ghost">See how it works</a>
+      <h1>A slide that argues <span class="assertion-mark">one clear claim</span> persuades more than a slide that lists many bullets.</h1>
+      <div class="hero-row">
+        <div class="hero-text">
+          <p class="lede">I help engineers, consultants, and leaders build presentations people actually remember. I studied and researched Michael Alley's Assertion-Evidence method at Penn State, and I've applied it ever since.</p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-primary">Book a consult</a>
+            <a href="#services" class="btn btn-ghost">See how it works</a>
+          </div>
+          <p class="hero-cite">This headline is itself an assertion. Toggle the slide to see why it works.</p>
         </div>
-        <p class="hero-cite">This headline is itself an assertion. Toggle the slide to see why it works.</p>
-      </div>
 
-      <div class="demo">
+        <div class="demo">
         <div class="demo-toolbar">
           <span class="demo-label">Slide 04 / Q3 Review</span>
           <div class="toggle" id="slideToggle">
@@ -640,6 +659,7 @@
           </div>
         </div>
         <p class="demo-caption">Same data. One version tells you what to remember.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -650,7 +670,7 @@
       <div class="section-head">
         <p class="eyebrow">The Method</p>
         <h2>One sentence stating your point beats a phrase headline every time.</h2>
-        <p>Michael Alley developed the Assertion-Evidence method at Penn State. I contributed to his research as a student and co-author. I've kept teaching and applying what he found ever since.</p>
+        <p>Michael Alley developed the Assertion-Evidence method at Penn State. I contributed to his research as a student and co-author, and remain a practitioner of it today.</p>
       </div>
       <div class="method-compare">
         <div class="method-slide">
@@ -670,8 +690,7 @@
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Services</p>
-        <h2>Every engagement becomes a workshop, a build, or a makeover.</h2>
-        <p>Every engagement can be scoped to a single deck or built into an ongoing capability for your team.</p>
+        <h2>I work with clients in one of three ways: teaching, building, or refining.</h2>
       </div>
       <div class="service-list">
         <div class="service-row">
@@ -707,7 +726,7 @@
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">In Their Words</p>
-        <h2>Feedback follows the same slides that follow this method.</h2>
+        <h2>A focused slide keeps the whole room on track.</h2>
       </div>
       <div class="quote-row">
         <div class="quote-item">
@@ -731,7 +750,7 @@
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">About</p>
-        <h2>An engineering background shapes how I edit a technical argument.</h2>
+        <h2>My engineering background shapes how I edit a technical argument.</h2>
       </div>
       <div class="about-grid">
         <div>
