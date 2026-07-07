@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keri Wolfe | Effective Communications Consultant</title>
+<meta name="description" content="Keri Wolfe helps technical teams and leaders build presentations that persuade, using the research-backed Assertion-Evidence method. Workshops, presentation creation, and slide makeovers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16212B;
+    --ink-soft:#2A3A47;
+    --paper:#F6F5F1;
+    --paper-dim:#EDEBE4;
+    --slate:#4B686E;
+    --slate-light:#8B9EA3;
+    --brand:#00AA77;
+    --brand-dark:#009C68;
+    --line:#DBD8D0;
+    --line-dark:#3A4A57;
+    --radius-s:3px;
+    --radius-m:4px;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--brand-dark);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0 0 16px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;
+    height:1px;
+    background:var(--brand-dark);
+    display:inline-block;
+  }
+
+  :focus-visible{
+    outline:2px solid var(--brand-dark);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(246,245,241,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:72px;
+  }
+  .brand{
+    display:inline-flex;
+    align-items:center;
+    text-decoration:none;
+  }
+  .brand-logo{
+    height:42px;
+    width:auto;
+  }
+  .navlinks{
+    display:flex;
+    gap:32px;
+    list-style:none;
+    padding:0;
+    margin:0;
+    font-size:14px;
+  }
+  .navlinks a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    position:relative;
+    padding:4px 0;
+  }
+  .navlinks a:hover{color:var(--ink);}
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+    padding:11px 20px;
+    border-radius:var(--radius-s);
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:box-shadow .15s ease, background .15s ease;
+  }
+  .btn-primary{
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .btn-primary:hover{background:var(--ink-soft);}
+  .btn-ghost{
+    border-color:var(--line-dark);
+    color:var(--ink);
+  }
+  .btn-ghost:hover{border-color:var(--ink); background:rgba(22,33,43,0.04);}
+  .nav-cta{display:none;}
+  @media(min-width:860px){.nav-cta{display:inline-flex;}}
+  .navlinks{display:none;}
+  @media(min-width:860px){.navlinks{display:flex;}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:88px 0 72px;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:56px;
+  }
+  @media(min-width:960px){
+    .hero .wrap{grid-template-columns:1.05fr 1fr; align-items:center;}
+  }
+  .hero h1{
+    font-size:clamp(30px, 4.4vw, 46px);
+    line-height:1.18;
+    font-style:italic;
+  }
+  .hero .assertion-mark{color:var(--brand-dark); font-style:normal;}
+  .hero p.lede{
+    margin:22px 0 0;
+    max-width:46ch;
+    color:var(--slate);
+    font-size:17px;
+  }
+  .hero-ctas{
+    margin-top:32px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .hero-cite{
+    margin-top:28px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:12.5px;
+    color:var(--slate-light);
+  }
+
+  /* ---------- SIGNATURE: SLIDE DEMO ---------- */
+  .demo{
+    background:var(--ink);
+    border-radius:var(--radius-m);
+    padding:22px;
+    box-shadow:0 24px 48px -20px rgba(22,33,43,0.35);
+  }
+  .demo-toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:16px;
+  }
+  .demo-label{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#8FA0AC;
+  }
+  .toggle{
+    position:relative;
+    display:inline-flex;
+    background:rgba(255,255,255,0.08);
+    border-radius:999px;
+    padding:3px;
+    gap:2px;
+  }
+  .toggle button{
+    position:relative;
+    z-index:2;
+    border:none;
+    background:none;
+    color:#B8C2CA;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    padding:8px 14px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:color .2s ease;
+    white-space:nowrap;
+  }
+  .toggle button[aria-pressed="true"]{color:var(--ink);}
+  .toggle .thumb{
+    position:absolute;
+    top:3px; bottom:3px; left:3px;
+    width:calc(50% - 3px);
+    background:var(--brand);
+    border-radius:999px;
+    transition:transform .25s cubic-bezier(.4,0,.2,1);
+    z-index:1;
+  }
+  .toggle.state-ae .thumb{transform:translateX(100%);}
+
+  .slide{
+    background:#FFFFFF;
+    border-radius:var(--radius-s);
+    aspect-ratio:16/10;
+    padding:26px 28px;
+    position:relative;
+    overflow:hidden;
+  }
+  .slide-view{
+    position:absolute;
+    inset:0;
+    padding:26px 28px;
+    opacity:0;
+    transform:translateY(6px);
+    transition:opacity .25s ease, transform .25s ease;
+    pointer-events:none;
+  }
+  .slide-view.active{opacity:1; transform:translateY(0); pointer-events:auto;}
+
+  .slide-trad h4{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:700;
+    font-size:15px;
+    color:var(--ink);
+    margin-bottom:12px;
+  }
+  .slide-trad ul{
+    margin:0; padding-left:18px;
+    color:#3D4A55;
+    font-size:11.5px;
+    line-height:1.85;
+  }
+  .slide-trad li{margin-bottom:2px;}
+
+  .slide-ae .ae-assertion{
+    font-family:'Newsreader', serif;
+    font-style:italic;
+    font-size:17px;
+    line-height:1.35;
+    color:var(--ink);
+    max-width:34ch;
+    margin-bottom:14px;
+  }
+  .ae-chart{
+    display:flex;
+    align-items:flex-end;
+    gap:10px;
+    height:70px;
+  }
+  .ae-bar{
+    width:26px;
+    background:var(--line);
+    border-radius:3px 3px 0 0;
+    position:relative;
+  }
+  .ae-bar.hi{background:var(--brand-dark);}
+  .ae-bar span{
+    position:absolute;
+    top:-18px;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:9.5px;
+    color:var(--slate);
+    white-space:nowrap;
+  }
+  .ae-labels{
+    display:flex;
+    gap:10px;
+    margin-top:6px;
+  }
+  .ae-labels span{
+    width:26px;
+    text-align:center;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:9px;
+    color:var(--slate-light);
+  }
+  .demo-caption{
+    margin-top:14px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:11.5px;
+    color:#8FA0AC;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:96px 0;}
+  section.alt{background:var(--paper-dim);}
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-head h2{
+    font-size:clamp(26px,3vw,34px);
+    line-height:1.25;
+  }
+  .section-head p{
+    margin:16px 0 0;
+    color:var(--slate);
+    font-size:16px;
+  }
+
+  /* ---------- METHOD: ASSERTION / EVIDENCE ---------- */
+  .method-compare{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  @media(min-width:800px){
+    .method-compare{grid-template-columns:1fr 1fr; gap:48px;}
+  }
+  .method-slide .tag{
+    display:inline-block;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:600;
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--brand-dark);
+    margin-bottom:14px;
+  }
+  .method-slide > p{color:var(--slate); font-size:15.5px; line-height:1.6; margin:0; max-width:42ch;}
+
+  /* ---------- SERVICES: RULE-BASED LIST ---------- */
+  .service-list{
+    border-top:1px solid var(--line-dark);
+  }
+  .service-row{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+    padding:28px 0;
+    border-bottom:1px solid var(--line);
+  }
+  @media(min-width:760px){
+    .service-row{
+      grid-template-columns:110px 1fr 180px;
+      gap:32px;
+      align-items:start;
+    }
+  }
+  .service-verb{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--brand-dark);
+    padding-top:6px;
+  }
+  .service-body h3{
+    font-size:20px;
+    font-style:italic;
+    margin-bottom:10px;
+  }
+  .service-body p{color:var(--slate); font-size:14.5px; margin:0; max-width:58ch;}
+  .service-link{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:12.5px;
+    text-decoration:none;
+    color:var(--ink);
+    border-bottom:1px solid var(--line-dark);
+    align-self:start;
+    padding-bottom:2px;
+    justify-self:start;
+    white-space:nowrap;
+  }
+  .service-link:hover{border-color:var(--ink);}
+  @media(min-width:760px){.service-link{justify-self:end; text-align:right;}}
+
+  /* ---------- TESTIMONIALS: EQUAL WEIGHT ---------- */
+  .quote-row{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1px;
+    background:var(--line);
+  }
+  @media(min-width:760px){.quote-row{grid-template-columns:repeat(3,1fr);}}
+  .quote-item{
+    background:var(--ink);
+    color:var(--paper);
+    padding:32px 30px;
+  }
+  .quote-item p{
+    font-family:'Newsreader', serif;
+    font-style:italic;
+    font-size:16px;
+    line-height:1.55;
+    margin:0 0 18px;
+  }
+  .quote-item cite{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-style:normal;
+    font-size:11.5px;
+    color:#93A2AC;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:48px;
+  }
+  @media(min-width:900px){.about-grid{grid-template-columns:280px 1fr; align-items:start;}}
+  .about-photo-frame{
+    width:200px;
+    max-width:100%;
+    aspect-ratio:1;
+    background:var(--brand);
+    clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    padding:7px;
+  }
+  .about-photo{
+    width:100%;
+    height:100%;
+    clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    overflow:hidden;
+  }
+  .about-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .about-intro{
+    font-size:17px;
+    color:var(--ink-soft);
+    max-width:60ch;
+    margin:0 0 40px;
+  }
+  .timeline{
+    border-left:1px solid var(--line-dark);
+    padding-left:28px;
+    display:flex;
+    flex-direction:column;
+    gap:32px;
+  }
+  section .timeline{border-left-color:var(--line);}
+  .timeline-item{position:relative;}
+  .timeline-item::before{
+    content:"";
+    position:absolute;
+    left:-33px; top:4px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--brand-dark);
+  }
+  .timeline-item .year{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:12px;
+    color:var(--brand-dark);
+    margin-bottom:6px;
+    display:block;
+  }
+  .timeline-item h4{
+    font-size:17px;
+    font-style:italic;
+    margin-bottom:6px;
+  }
+  .timeline-item p{color:var(--slate); font-size:14.5px; margin:0;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:48px;
+  }
+  @media(min-width:900px){.contact-grid{grid-template-columns:1fr 1.2fr;}}
+  .contact-info h2{font-size:clamp(26px,3vw,34px);}
+  .contact-info p{color:var(--slate); margin:16px 0 28px; max-width:40ch;}
+  .contact-detail{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:14px;
+    font-size:15px;
+  }
+  .contact-detail .k{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:11px;
+    color:var(--slate-light);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    width:64px;
+    flex-shrink:0;
+  }
+  .contact-detail a{text-decoration:none; border-bottom:1px solid var(--line-dark);}
+
+  form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .field label{
+    display:block;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--slate);
+    margin-bottom:8px;
+  }
+  .field input, .field textarea{
+    width:100%;
+    border:1px solid var(--line-dark);
+    background:#FFFFFF;
+    border-radius:var(--radius-s);
+    padding:13px 14px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:15px;
+    color:var(--ink);
+  }
+  .field textarea{resize:vertical; min-height:120px;}
+  .field input:focus, .field textarea:focus{
+    outline:2px solid var(--brand-dark);
+    outline-offset:1px;
+    border-color:var(--brand-dark);
+  }
+  form .btn-primary{align-self:flex-start; margin-top:6px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:36px 0;
+  }
+  footer .wrap{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    align-items:flex-start;
+    font-size:13px;
+    color:var(--slate);
+  }
+  @media(min-width:700px){
+    footer .wrap{flex-direction:row; justify-content:space-between; align-items:center;}
+  }
+  footer a{text-decoration:none; color:var(--slate); border-bottom:1px solid var(--line);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="brand"><img src="logo.png" alt="Keri Wolfe, Effective Communications Consultant" class="brand-logo"></a>
+    <ul class="navlinks">
+      <li><a href="#method">Method</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary nav-cta">Book a consult</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>A slide that argues <span class="assertion-mark">one clear claim</span> persuades more than a slide that lists many bullets.</h1>
+        <p class="lede">I help engineers, consultants, and leaders build presentations people actually remember. I studied and researched Michael Alley's Assertion-Evidence method at Penn State, and I've applied it ever since.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Book a consult</a>
+          <a href="#services" class="btn btn-ghost">See how it works</a>
+        </div>
+        <p class="hero-cite">This headline is itself an assertion. Toggle the slide to see why it works.</p>
+      </div>
+
+      <div class="demo">
+        <div class="demo-toolbar">
+          <span class="demo-label">Slide 04 / Q3 Review</span>
+          <div class="toggle" id="slideToggle">
+            <div class="thumb"></div>
+            <button type="button" aria-pressed="true" data-view="trad">Traditional</button>
+            <button type="button" aria-pressed="false" data-view="ae">Assertion-Evidence</button>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-view slide-trad active">
+            <h4>Q3 Manufacturing Update</h4>
+            <ul>
+              <li>Reviewed changeover procedure with floor supervisors</li>
+              <li>Identified three bottleneck stations on Line 2</li>
+              <li>Piloted new SOP across two shifts</li>
+              <li>Collected downtime data over six week period</li>
+              <li>Cross-referenced with maintenance logs</li>
+              <li>Presented findings to plant manager</li>
+              <li>Downtime trended downward through pilot</li>
+              <li>Recommend rollout to Lines 1, 3, and 4</li>
+              <li>Next steps: finalize training materials</li>
+            </ul>
+          </div>
+          <div class="slide-view slide-ae">
+            <p class="ae-assertion">The new changeover SOP cut Line 2 downtime 22% within six weeks.</p>
+            <div class="ae-chart">
+              <div class="ae-bar" style="height:100%;"><span>Before</span></div>
+              <div class="ae-bar hi" style="height:56%;"><span>After</span></div>
+            </div>
+            <div class="ae-labels"><span>Wk 1</span><span>Wk 6</span></div>
+          </div>
+        </div>
+        <p class="demo-caption">Same data. One version tells you what to remember.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section id="method" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The Method</p>
+        <h2>One sentence stating your point beats a phrase headline every time.</h2>
+        <p>Michael Alley developed the Assertion-Evidence method at Penn State. I contributed to his research as a student and co-author. I've kept teaching and applying what he found ever since.</p>
+      </div>
+      <div class="method-compare">
+        <div class="method-slide">
+          <span class="tag">Assertion</span>
+          <p>The headline is a full sentence stating the one claim worth remembering.</p>
+        </div>
+        <div class="method-slide">
+          <span class="tag">Evidence</span>
+          <p>The body shows proof: a chart, image, or diagram, instead of restating the claim in text.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Services</p>
+        <h2>Every engagement becomes a workshop, a build, or a makeover.</h2>
+        <p>Every engagement can be scoped to a single deck or built into an ongoing capability for your team.</p>
+      </div>
+      <div class="service-list">
+        <div class="service-row">
+          <span class="service-verb">Teach</span>
+          <div class="service-body">
+            <h3>Workshops</h3>
+            <p>Hands-on sessions that teach your team to build assertion-driven visual aids and deliver with confidence. Past audiences range from graduate seminars to a women's leadership development course at Texas Instruments.</p>
+          </div>
+          <a href="#contact" class="service-link">Ask about a workshop</a>
+        </div>
+        <div class="service-row">
+          <span class="service-verb">Build</span>
+          <div class="service-body">
+            <h3>Presentation Creation</h3>
+            <p>Send your data, objectives, and background material. I pull out the argument that matters, build the deck, and hand you a script outline. You just need to practice and deliver.</p>
+          </div>
+          <a href="#contact" class="service-link">Start a presentation</a>
+        </div>
+        <div class="service-row">
+          <span class="service-verb">Refine</span>
+          <div class="service-body">
+            <h3>Slide Makeovers</h3>
+            <p>Hourly help on an existing deck. We open with a working session on your content. We meet mid-cycle to trade feedback. We finish with a final review and delivery coaching before you present.</p>
+          </div>
+          <a href="#contact" class="service-link">Get a makeover</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">In Their Words</p>
+        <h2>Feedback follows the same slides that follow this method.</h2>
+      </div>
+      <div class="quote-row">
+        <div class="quote-item">
+          <p>"Loved all the examples, the hands-on opportunities, and the experienced critiquers."</p>
+          <cite>2016 Participant, Texas Instruments, Women's Development Course</cite>
+        </div>
+        <div class="quote-item">
+          <p>"Yours was the best presentation I attended at the conference. It modeled excellent implementation of the Assertion-Evidence approach."</p>
+          <cite>Program Director, Big 12 University Conference</cite>
+        </div>
+        <div class="quote-item">
+          <p>"This PowerPoint was the centerpiece of the meeting. The discussions were focused, constructive, and dynamic."</p>
+          <cite>Client, CBRE</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">About</p>
+        <h2>An engineering background shapes how I edit a technical argument.</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <div class="about-photo-frame">
+            <div class="about-photo">
+              <img src="headshot.jpg" alt="Portrait of Keri Wolfe">
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="about-intro">I have a passion for effective communication and for helping people find the clearest way to express a technical idea. Most of my work is technical in nature, but the same principles apply to any high-stakes presentation.</p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="year">2011 – 2013 · Penn State University</span>
+              <h4>Research &amp; Education</h4>
+              <p>B.S. in Chemical Engineering with a minor in German and Honors in Communication Arts &amp; Sciences. Supported Michael Alley's Assertion-Evidence research as a student researcher. Presented at the 2011 and 2012 ASEE National Conferences and co-authored a thesis on effective engineering communication. As a Penn State Engineering Ambassador, delivered presentations to audiences from 4 to 400 people.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="year">Since 2013 · Industry</span>
+              <h4>Engineering, Product, and Project Management</h4>
+              <p>Roles spanning engineering in the energy industry, project management with an engineering consulting firm, and product management in software. Along the way, lived and worked in both the US and Germany.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="year">Currently · Houston, TX</span>
+              <h4>Technology Consulting</h4>
+              <p>Working as a technology consultant, while continuing to teach, coach, and build presentations through Assertion-Evidence. Along the way, exposed to the communication style of organizations across industries.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="alt">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <p class="eyebrow">Get in Touch</p>
+        <h2>One message is enough to scope the right engagement.</h2>
+        <p>Tell me a bit about your audience and timeline, and I'll follow up to scope the right engagement: workshop, full build, or makeover.</p>
+        <div class="contact-detail"><span class="k">Location</span> Houston, TX</div>
+        <div class="contact-detail"><span class="k">LinkedIn</span> <a href="https://www.linkedin.com/in/keriwolfe" target="_blank" rel="noopener">linkedin.com/in/keriwolfe</a></div>
+      </div>
+      <form action="https://formspree.io/f/meerjozk" method="POST">
+        <input type="hidden" name="_subject" value="New message from keriwolfe.com">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+        <div class="field">
+          <label for="message">What are you working on?</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send message</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Keri Wolfe. Houston, TX.</span>
+    <a href="#contact">Get in touch</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.getElementById('slideToggle');
+  const buttons = toggle.querySelectorAll('button');
+  const views = document.querySelectorAll('.slide-view');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.view;
+      buttons.forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+      toggle.classList.toggle('state-ae', target === 'ae');
+      views.forEach(v => v.classList.toggle('active', v.classList.contains('slide-' + target)));
+    });
+  });
+</script>
+
+</body>
+</html>
