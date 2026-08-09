@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Keri Wolfe | Effective Communications Consultant</title>
+<link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <meta name="description" content="Keri Wolfe helps technical teams and leaders build presentations audiences understand and remember, using the research-backed Assertion-Evidence method. Workshops, presentation creation, and slide makeovers.">
@@ -573,6 +574,14 @@
     border-color:var(--brand-dark);
   }
   form .btn-primary{align-self:flex-start; margin-top:6px;}
+  .form-success, .form-error{
+    display:none;
+    margin:4px 0 0;
+    font-size:14.5px;
+  }
+  .form-success{color:var(--brand-dark); font-weight:600;}
+  .form-error{color:#C0554B;}
+  .form-success.show, .form-error.show{display:block;}
 
   /* ---------- FOOTER ---------- */
   footer{
@@ -784,7 +793,7 @@
         <div class="contact-detail"><span class="k">Location</span> Houston, TX</div>
         <div class="contact-detail"><span class="k">LinkedIn</span> <a href="https://www.linkedin.com/in/keriwolfe" target="_blank" rel="noopener">linkedin.com/in/keriwolfe</a></div>
       </div>
-      <form action="https://formspree.io/f/meerjozk" method="POST">
+      <form action="https://formspree.io/f/meerjozk" method="POST" id="contactForm">
         <input type="hidden" name="_subject" value="New message from keriwolfe.com">
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
         <div class="field">
@@ -799,7 +808,9 @@
           <label for="message">What are you working on?</label>
           <textarea id="message" name="message" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Send message</button>
+        <button type="submit" class="btn btn-primary" id="contactSubmit">Send message</button>
+        <p class="form-success" id="contactSuccess">Thank you for getting in touch. Keri will follow up as soon as possible.</p>
+        <p class="form-error" id="contactError">Something went wrong. Please try again, or email directly.</p>
       </form>
     </div>
   </section>
@@ -852,6 +863,38 @@
   });
   document.addEventListener('keydown', (e) => {
     if(e.key === 'Escape') closeSlideModal();
+  });
+
+  const contactForm = document.getElementById('contactForm');
+  const contactSubmit = document.getElementById('contactSubmit');
+  const contactSuccess = document.getElementById('contactSuccess');
+  const contactError = document.getElementById('contactError');
+
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    contactError.classList.remove('show');
+    contactSubmit.disabled = true;
+    contactSubmit.textContent = 'Sending...';
+
+    fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response){
+      if(response.ok){
+        contactForm.reset();
+        contactSuccess.classList.add('show');
+        contactSubmit.style.display = 'none';
+      } else {
+        contactError.classList.add('show');
+        contactSubmit.disabled = false;
+        contactSubmit.textContent = 'Send message';
+      }
+    }).catch(function(){
+      contactError.classList.add('show');
+      contactSubmit.disabled = false;
+      contactSubmit.textContent = 'Send message';
+    });
   });
 </script>
 
