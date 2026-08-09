@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    { "source": "/about", "destination": "/#about", "permanent": true },
+    { "source": "/services", "destination": "/#services", "permanent": true },
+    { "source": "/workshops", "destination": "/#services", "permanent": true },
+    { "source": "/presentation-creation", "destination": "/#services", "permanent": true },
+    { "source": "/slide-makeovers", "destination": "/#services", "permanent": true },
+    { "source": "/contact", "destination": "/#contact", "permanent": true },
+    { "source": "/home", "destination": "/", "permanent": true }
+  ]
+}
