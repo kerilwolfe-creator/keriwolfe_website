@@ -31,6 +31,7 @@
     --slate-light:#8B9EA3;
     --brand:#00AA77;
     --brand-dark:#009C68;
+    --brand-text:#006E4B;
     --line:#DBD8D0;
     --line-dark:#3A4A57;
     --radius-s:3px;
@@ -73,10 +74,11 @@
 
   .eyebrow{
     font-family:'IBM Plex Sans', sans-serif;
-    font-size:12px;
+    font-weight:600;
+    font-size:13.5px;
     letter-spacing:0.12em;
     text-transform:uppercase;
-    color:var(--brand-dark);
+    color:var(--brand-text);
     display:flex;
     align-items:center;
     gap:10px;
@@ -125,7 +127,7 @@
     list-style:none;
     padding:0;
     margin:0;
-    font-size:14px;
+    font-size:15px;
   }
   .navlinks a{
     text-decoration:none;
@@ -140,7 +142,7 @@
     align-items:center;
     gap:8px;
     font-family:'IBM Plex Sans', sans-serif;
-    font-size:14px;
+    font-size:15px;
     font-weight:600;
     text-decoration:none;
     padding:11px 20px;
@@ -223,7 +225,8 @@
   }
   .demo-label{
     font-family:'IBM Plex Sans', sans-serif;
-    font-size:11px;
+    font-weight:600;
+    font-size:12.5px;
     letter-spacing:0.08em;
     text-transform:uppercase;
     color:#8FA0AC;
@@ -246,7 +249,7 @@
     background:none;
     color:#B8C2CA;
     font-family:'IBM Plex Sans', sans-serif;
-    font-size:12.5px;
+    font-size:14px;
     font-weight:600;
     padding:8px 10px;
     border-radius:999px;
@@ -344,7 +347,7 @@
   .demo-caption{
     margin-top:14px;
     font-family:'IBM Plex Sans', sans-serif;
-    font-size:11.5px;
+    font-size:13px;
     color:#8FA0AC;
   }
 
@@ -378,20 +381,20 @@
     display:inline-block;
     font-family:'IBM Plex Sans', sans-serif;
     font-weight:600;
-    font-size:11px;
+    font-size:12.5px;
     letter-spacing:0.06em;
     text-transform:uppercase;
-    color:var(--brand-dark);
+    color:var(--brand-text);
     margin-bottom:14px;
   }
   .method-slide > p{color:var(--slate); font-size:15.5px; line-height:1.6; margin:0; max-width:42ch;}
   .method-links{
     margin:36px 0 0;
-    font-size:14.5px;
+    font-size:15.5px;
     color:var(--slate);
   }
   .method-links a{
-    color:var(--brand-dark);
+    color:var(--brand-text);
     text-decoration:none;
     border-bottom:1px solid var(--line-dark);
   }
@@ -417,10 +420,11 @@
   }
   .service-verb{
     font-family:'IBM Plex Sans', sans-serif;
-    font-size:12px;
+    font-weight:600;
+    font-size:13.5px;
     letter-spacing:0.08em;
     text-transform:uppercase;
-    color:var(--brand-dark);
+    color:var(--brand-text);
     padding-top:6px;
   }
   .service-body h3{
@@ -428,10 +432,10 @@
     font-style:italic;
     margin-bottom:10px;
   }
-  .service-body p{color:var(--slate); font-size:14.5px; margin:0; max-width:58ch;}
+  .service-body p{color:var(--slate); font-size:15.5px; margin:0; max-width:58ch;}
   .service-link{
     font-family:'IBM Plex Sans', sans-serif;
-    font-size:12.5px;
+    font-size:14px;
     text-decoration:none;
     color:var(--ink);
     border-bottom:1px solid var(--line-dark);
@@ -468,7 +472,7 @@
   .quote-item cite{
     font-family:'IBM Plex Sans', sans-serif;
     font-style:normal;
-    font-size:11.5px;
+    font-size:13px;
     color:#93A2AC;
     margin-top:auto;
   }
@@ -514,8 +518,9 @@
   }
   .timeline-item .year{
     font-family:'IBM Plex Sans', sans-serif;
-    font-size:12px;
-    color:var(--brand-dark);
+    font-weight:600;
+    font-size:13.5px;
+    color:var(--brand-text);
     margin-bottom:6px;
     display:block;
   }
@@ -524,7 +529,7 @@
     font-style:italic;
     margin-bottom:6px;
   }
-  .timeline-item p{color:var(--slate); font-size:14.5px; margin:0;}
+  .timeline-item p{color:var(--slate); font-size:15.5px; margin:0;}
 
   /* ---------- CONTACT ---------- */
   .contact-grid{
@@ -544,7 +549,8 @@
   }
   .contact-detail .k{
     font-family:'IBM Plex Sans', sans-serif;
-    font-size:11px;
+    font-weight:600;
+    font-size:12.5px;
     color:var(--slate-light);
     text-transform:uppercase;
     letter-spacing:0.08em;
@@ -561,7 +567,7 @@
   .field label{
     display:block;
     font-family:'IBM Plex Sans', sans-serif;
-    font-size:11.5px;
+    font-size:13px;
     text-transform:uppercase;
     letter-spacing:0.06em;
     color:var(--slate);
@@ -587,9 +593,9 @@
   .form-success, .form-error{
     display:none;
     margin:4px 0 0;
-    font-size:14.5px;
+    font-size:15.5px;
   }
-  .form-success{color:var(--brand-dark); font-weight:600;}
+  .form-success{color:var(--brand-text); font-weight:600;}
   .form-error{color:#C0554B;}
   .form-success.show, .form-error.show{display:block;}
 
@@ -603,7 +609,7 @@
     flex-direction:column;
     gap:14px;
     align-items:flex-start;
-    font-size:13px;
+    font-size:14.5px;
     color:var(--slate);
   }
   @media(min-width:700px){
@@ -709,7 +715,7 @@
       <div class="section-head">
         <p class="eyebrow">The Method</p>
         <h2>One sentence stating your point beats a phrase headline every time.</h2>
-        <p>Michael Alley developed the Assertion-Evidence method at Penn State. I contributed to his research as a student and co-author, and remain a practitioner of it today.</p>
+        <p>Michael Alley developed the Assertion-Evidence method at Penn State. I contributed to his research as a co-author, and remain a practitioner of it today.</p>
       </div>
       <div class="method-compare">
         <div class="method-slide">
@@ -799,22 +805,22 @@
           </div>
         </div>
         <div>
-          <p class="about-intro">I have a passion for effective communication and for helping people find the clearest way to express a technical idea. Most of my work is technical in nature, but the same principles apply to any high-stakes presentation.</p>
+          <p class="about-intro">I have a passion for effective communication, helping people express complex ideas as clearly as possible, no matter the audience.</p>
           <div class="timeline">
             <div class="timeline-item">
               <span class="year">2011 – 2013 · Penn State University</span>
               <h4>Research &amp; Education</h4>
-              <p>B.S. in Chemical Engineering with a minor in German and Honors in Communication Arts &amp; Sciences. Supported Michael Alley's Assertion-Evidence research as a student researcher. Presented at the 2011 and 2012 ASEE National Conferences and co-authored a thesis on effective engineering communication. As a Penn State Engineering Ambassador, delivered presentations to audiences from 4 to 400 people.</p>
+              <p>B.S. in Chemical Engineering with a minor in German and Honors in Communication Arts &amp; Sciences. Contributed to Michael Alley's Assertion-Evidence research, presenting at the 2011 and 2012 ASEE National Conferences and co-authoring a thesis on effective engineering communication. As a Penn State Engineering Ambassador, delivered presentations to audiences from 4 to 400 people.</p>
             </div>
             <div class="timeline-item">
               <span class="year">2013 – 2022 · Industry</span>
               <h4>Energy and Software Industries</h4>
-              <p>Roles spanning engineering in the energy industry, project management with an engineering consulting firm, and product management in software. Along the way, lived and worked in both the US and Germany.</p>
+              <p>A career spanning engineering, project management, and product management, both domestically and internationally.</p>
             </div>
             <div class="timeline-item">
               <span class="year">2022 – Present · Houston, TX</span>
               <h4>Technology Consulting</h4>
-              <p>Working as a technology consultant, while continuing to teach, coach, and build presentations through Assertion-Evidence. Along the way, exposed to the communication style of organizations across industries.</p>
+              <p>Working as a technology consultant in a dynamic, fast-paced environment that requires staying responsive to shifting client priorities. Assertion-Evidence continues to shape how I approach presentations and communication.</p>
             </div>
           </div>
         </div>
